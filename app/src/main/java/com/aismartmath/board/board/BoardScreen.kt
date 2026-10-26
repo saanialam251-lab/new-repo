@@ -155,7 +155,7 @@ fun BoardScreen(topic: Topic, onBack: () -> Unit) {
             }
 
             // bottom panel (tool hint or edit panel) with its minimise button at the top-left
-            AnimatedVisibility(
+            androidx.compose.animation.AnimatedVisibility(
                 visible = !full,
                 modifier = Modifier.align(Alignment.BottomCenter),
                 enter = slideInVertically(tween(250)) { it } + fadeIn(tween(250)),
@@ -460,7 +460,7 @@ private fun ZoomBadge(z: Double) {
         Text(text, color = BoardColors.Muted, fontSize = 11.sp, fontWeight = FontWeight.Bold)
     }
 }
-
+ 
 @Composable
 private fun MinButton(minimised: Boolean, onClick: () -> Unit) {
     val rot by animateFloatAsState(if (minimised) 180f else 0f, tween(250), label = "minRot")
@@ -479,7 +479,7 @@ private fun MinButton(minimised: Boolean, onClick: () -> Unit) {
         Text(if (minimised) "Show" else "Hide", color = Color.White, fontSize = 12.sp)
     }
 }
-
+ 
 @Composable
 private fun InfoCard(info: Info, accent: Color) {
     val border by animateColorAsState(accent.copy(alpha = 0.55f), tween(300), label = "infoBorder")
@@ -505,7 +505,7 @@ private fun InfoCard(info: Info, accent: Color) {
         }
     }
 }
-
+ 
 @Composable
 private fun ToolChip(icon: String, name: String, on: Boolean, index: Int, onClick: () -> Unit) {
     val enter = remember { Animatable(0f) }
